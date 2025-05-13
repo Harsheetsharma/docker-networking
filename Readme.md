@@ -42,8 +42,10 @@ docker run -p 3000:3000 --name my-app --network <your-network-name> my-backend
 ```
 Result = mongoDB connected
 
-yet to add docker-compose.yaml
-
+Docker-compose.yaml is added - will create two container
+1. The mongogb will start.
+2. The backend process will start.
+3. Volume will be created to store the data.
 
 
 
