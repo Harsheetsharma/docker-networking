@@ -42,6 +42,7 @@ docker run -p 3000:3000 --name my-app --network <your-network-name> my-backend
 ```
 Result = mongoDB connected
 
+yet to add docker.compose.yml
 
 
 
