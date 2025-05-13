@@ -1,14 +1,50 @@
-this is a normal express application using TS as language
-here we will larn about networking (how one docker container talks to another container)
-follow following steps
+# 🚀 Express + TypeScript + Docker Networking Demo
 
-1. Create a network (name can be anything) - run the following command
-   cmd = "docker network create <network name>"
-2. run a different docker mongo image , giving it a name while attaching it to this network
-   cmd = "docker run -d -p 27017:27017 --name <container name> --network <network name> mongo"
-3. now run this backend image by replacing the name of the database in connection string int db.ts with the container name of mongo
-   cmd = docker run -p 3000:3000 --name <"anything"> --network <network name> <image name>
+This is a simple **Express application** built using **TypeScript**.  
+Here, we learn how **Docker networking** works — specifically, how **one container talks to another** using Docker's built-in networking.
 
-After following these steps you will see "mongoDB connected" on terminal
+---
 
-good luck!
+## 🧠 What You'll Learn
+
+- 📦 Running multiple containers
+- 🔗 Connecting containers using Docker networks
+- 🗃️ Connecting a backend to a MongoDB container
+
+---
+
+## 🛠️ Setup Instructions
+
+Follow these steps carefully:
+
+---
+
+### 🔧 Step 1: Create a Docker Network
+
+```bash
+docker network create <your-network-name>
+```
+
+### 🔧 Step 2: Run MongoDB Container in the Network
+```bash
+docker run -d -p 27017:27017 --name mongo --network <your-network-name> mongo
+```
+
+### 🔧 Step 3: Update Connection String
+```bash
+const uri = "mongodb://mongo:27017/<your-db-name>";
+```
+
+### 🔧 Step 4: Run Your Backend App in the Same Network
+```bash
+docker build -t my-backend .
+docker run -p 3000:3000 --name my-app --network <your-network-name> my-backend
+```
+Result = mongoDB connected
+
+
+
+
+
+
+
